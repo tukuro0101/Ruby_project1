@@ -1,17 +1,6 @@
 class CoffeeShop < ApplicationRecord
   has_many :reviews
   has_many :customers, through: :reviews
+  has_many :fans, class_name: 'Customer', foreign_key: 'favorite_coffee_shop_id'
 end
-
-# app/models/customer.rb
-class Customer < ApplicationRecord
-  belongs_to :favorite_coffee_shop, class_name: 'CoffeeShop'
-  has_many :reviews
-  has_many :reviewed_coffee_shops, through: :reviews, source: :coffee_shop
-end
-
-# app/models/review.rb
-class Review < ApplicationRecord
-  belongs_to :customer
-  belongs_to :coffee_shop
-end
+#one-to-many association between CoffeeShops and Reviews
