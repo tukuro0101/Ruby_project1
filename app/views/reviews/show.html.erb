@@ -1,2 +1,5 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<h1>Review</h1>
+<p>Customer: <%= link_to @review.customer.first_name + " " + @review.customer.last_name, customer_path(@review.customer) %></p>
+<p>Coffee Shop: <%= link_to @review.coffee_shop.name, coffee_shop_path(@review.coffee_shop) %></p>
+<p>Rating: <%= @review.rating %></p>
+<p>Comment: <%= @review.comment %></p>
